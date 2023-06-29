@@ -1,5 +1,5 @@
 ---
-- hosts: server
+- hosts: hosts
   become: yes
   tasks:
    - name: Download Open JDK
