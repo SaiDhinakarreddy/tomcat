@@ -14,11 +14,11 @@
       state: present
    - name: Create the group
      group: 
-      name: dhinakar-group
+      name: tomcat
       state: present
    - name: Create the user
      user:
-        name: dhinakar-group
+        name: tomcat
         state: present
    - name: Download Tomcat
      get_url:  
@@ -30,8 +30,8 @@
       src: /tmp/apache-tomcat-9.0.76.tar.gz 
       dest: /opt/
       mode: 0755
-      group: dhinakar-group
-      owner: dhinakar-group
+      group: tomcat
+      owner: tomcat
       remote_src: yes
 
    - name: Copy the user role tomcat-users.xml
