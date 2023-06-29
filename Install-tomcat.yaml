@@ -1,5 +1,5 @@
 ---
-- hosts: tomcat
+- hosts: server
   become: yes
   tasks:
    - name: Download Open JDK
@@ -14,11 +14,11 @@
       state: present
    - name: Create the group
      group: 
-      name: nihit-group
+      name: dhinakar-group
       state: present
    - name: Create the user
      user:
-        name: nihit-group
+        name: dhinakar-group
         state: present
    - name: Download Tomcat
      get_url:  
@@ -30,8 +30,8 @@
       src: /tmp/apache-tomcat-9.0.76.tar.gz 
       dest: /opt/
       mode: 0755
-      group: nihit-group
-      owner: nihit-group
+      group: dhinakar-group
+      owner: dhinakar-group
       remote_src: yes
 
    - name: Copy the user role tomcat-users.xml
@@ -69,7 +69,7 @@
      copy:
         src: context.xml
         dest: /opt/apache-tomcat-9.0.76/webapps/manager/META-INF
-    #    remote_src: yes
+        remote_src: yes
      notify:
        - Reload SystemD
        - Restart tomcat
@@ -77,11 +77,8 @@
      copy:
         src: hostmanager-context.xml
         dest: /opt/apache-tomcat-9.0.76/webapps/host-manager/META-INF
-     #   remote_src: yes
-   - name : Copy war file
-     copy:
-        src: addressbook.war
-        dest: /opt/apache-tomcat-9.0.76/webapps/addressbook.war
+        remote_src: yes
+   
         
      notify: 
        - Reload SystemD
