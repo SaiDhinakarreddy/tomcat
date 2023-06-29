@@ -1,5 +1,5 @@
 ---
-- hosts: hosts
+- hosts: tomcat
   become: yes
   tasks:
    - name: Download Open JDK
