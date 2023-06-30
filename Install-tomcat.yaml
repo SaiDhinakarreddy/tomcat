@@ -88,6 +88,7 @@
         name: tomcat
         enabled: yes
         state: started
+        recurse: true
    
 
   handlers:
