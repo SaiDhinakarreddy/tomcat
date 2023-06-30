@@ -90,12 +90,4 @@
         enabled: yes
         state: started
 
-  handlers:
-    - name: Reload SystemD
-      systemd:
-        daemon-reload: yes
-    - name: Restart tomcat
-      systemd:
-        name: tomcat
-        enabled: yes
-        state: started
+  
