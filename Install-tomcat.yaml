@@ -49,8 +49,8 @@
         After=network.target
         [Service]
         Type=forking
-        User=www-data
-        Grooup=www-data
+        User=group
+        Grooup=group
         Environment="CATALINA_PID=/opt/apache-tomcat-9.0.76/logs/tomcat.pid"
         Environment="CATALINA_BASE=/opt/apache-tomcat-9.0.76"
         Environment="CATALINA_HOME=/opt/apache-tomcat-9.0.76"
