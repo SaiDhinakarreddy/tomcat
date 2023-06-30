@@ -42,13 +42,13 @@
        state: directory
        recurse: true
 
-    - name: Permissions to pid file
-      file:
-        path: "/opt/apache-tomcat-9.0.76/logs/tomcat.pid
-        mode: "0777"
-        owner: group
-        group: group
-        recurse: true
+   - name: Permissions to pid file
+     file:
+       path: "/opt/apache-tomcat-9.0.76/logs/tomcat.pid
+       mode: "0777"
+       owner: group
+       group: group
+       recurse: true
 
    - name: Copy the user role tomcat-users.xml
      copy:
