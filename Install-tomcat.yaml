@@ -29,7 +29,7 @@
      unarchive:  
       src: /tmp/apache-tomcat-9.0.76.tar.gz 
       dest: /opt/
-      mode: 0776
+      mode: 0777
       group: group
       owner: group
       remote_src: yes
