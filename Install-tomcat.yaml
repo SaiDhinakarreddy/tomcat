@@ -14,11 +14,11 @@
       state: present
    - name: Create the group
      group: 
-      name: tomcat
+      name: group
       state: present
    - name: Create the user
      user:
-        name: tomcat
+        name: group
         state: present
    - name: Download Tomcat
      get_url:  
@@ -30,15 +30,15 @@
       src: /tmp/apache-tomcat-9.0.76.tar.gz 
       dest: /opt/
       mode: 0755
-      group: tomcat
-      owner: tomcat
+      group: group
+      owner: group
       remote_src: yes
 
    - name: Copy the user role tomcat-users.xml
      copy:
         src: tomcat-users.xml
         dest: /opt/apache-tomcat-9.0.76/conf/tomcat-users.xml
-        #  remote_src: yes
+    #    remote_src: yes
 
    - name: Creating a service file
      copy:
@@ -69,7 +69,7 @@
      copy:
         src: context.xml
         dest: /opt/apache-tomcat-9.0.76/webapps/manager/META-INF
-        # remote_src: yes
+    #    remote_src: yes
      notify:
        - Reload SystemD
        - Restart tomcat
@@ -77,9 +77,8 @@
      copy:
         src: hostmanager-context.xml
         dest: /opt/apache-tomcat-9.0.76/webapps/host-manager/META-INF
-        # remote_src: yes
-   
-        
+     #   remote_src: yes
+
      notify: 
        - Reload SystemD
        - Restart tomcat
@@ -89,14 +88,13 @@
         name: tomcat
         enabled: yes
         state: started
-        
-handlers:
-   - name: Reload SystemD
+
+  handlers:
+    - name: Reload SystemD
       systemd:
         daemon-reload: yes
-   - name: Restart tomcat
+    - name: Restart tomcat
       systemd:
         name: tomcat
         enabled: yes
         state: started
-  
