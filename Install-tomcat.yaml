@@ -82,12 +82,12 @@
      notify: 
        - Reload SystemD
        - Restart tomcat
+
    - name: restart tomcat
      systemd:
         name: tomcat
-        enabled: yes
+       # enabled: yes
         state: started
-     when: jps_result.stdout == ""
    
 
   handlers:
