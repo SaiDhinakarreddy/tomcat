@@ -85,7 +85,7 @@
 
    - name: restart Tomcat
      systemd:
-        name: Tomcat
+        name: tomcat.service
         enabled: yes
         state: started
    
