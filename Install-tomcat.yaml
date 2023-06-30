@@ -83,9 +83,9 @@
        - Reload SystemD
        - Restart tomcat
 
-   - name: restart tomcat
+   - name: restart Tomcat
      systemd:
-        name: tomcat
+        name: Tomcat
         enabled: yes
         state: started
    
