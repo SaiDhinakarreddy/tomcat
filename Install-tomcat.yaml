@@ -33,6 +33,15 @@
       group: group
       owner: group
       remote_src: yes
+   - name: permissions to tomcat folder
+     file:
+       path: "/opt/apache-tomcat-9.0.76"
+       mode: "0774"
+       owner: group
+       group: group
+       state: directory
+       recurse: true
+       
 
    - name: Copy the user role tomcat-users.xml
      copy:
