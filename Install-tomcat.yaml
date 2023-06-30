@@ -49,7 +49,7 @@
        owner: group
        group: group
        state: file
-       recurse: true
+      
 
    - name: Copy the user role tomcat-users.xml
      copy:
