@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: tomcat
   become: yes
   tasks:
    - name: Download Open JDK
@@ -90,7 +90,7 @@
         enabled: yes
         state: started
         
- handlers:
+handlers:
    - name: Reload SystemD
       systemd:
         daemon-reload: yes
