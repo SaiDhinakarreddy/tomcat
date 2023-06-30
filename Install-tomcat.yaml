@@ -32,7 +32,6 @@
       mode: 0776
       group: group
       owner: group
-      recurse: true
       remote_src: yes
 
    - name: Copy the user role tomcat-users.xml
