@@ -44,7 +44,7 @@
 
    - name: Permissions to pid file
      file:
-       path: "/opt/apache-tomcat-9.0.76/logs/tomcat.pid
+       path: "/opt/apache-tomcat-9.0.76/logs
        mode: "0777"
        owner: group
        group: group
